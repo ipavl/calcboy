@@ -32,7 +32,6 @@ LWORD _input2 = 0;
 LWORD _answer = 0;
 char _oper = OP_ADD;
 
-void clear_disp();
 void draw_screen();
 void calc_ans();
 void select_op();
@@ -74,15 +73,6 @@ int main(void) {
     }
 
     return 0;
-}
-
-/*
- * Clears the display.
- */
-void clear_disp() {
-    for (i = 0; i < 18; i++) {
-        printf(" \n");
-    }
 }
 
 /*
