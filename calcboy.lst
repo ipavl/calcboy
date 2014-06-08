@@ -1,9 +1,9 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : FreeWare ANSI-C Compiler
-                              3 ; Version 2.3.1 Sat Jun  7 21:19:09 2014
+                              3 ; Version 2.3.1 Sat Jun  7 21:24:27 2014
                               4 
                               5 ;--------------------------------------------------------
-                              6 	.module lcc236700
+                              6 	.module lcc238460
                               7 	
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
@@ -247,7 +247,7 @@
                             247 ;	calcboy.c 62
                             248 ;	genCall
                             249 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0079 CD E4 03            250 	call	_redraw_in2
+   0079 CD F5 03            250 	call	_redraw_in2
                             251 ;	calcboy.c 63
                             252 ;	genGoto
    007C C3 03 00            253 	jp	00109$
@@ -284,7 +284,7 @@
                             284 ;	calcboy.c 66
                             285 ;	genCall
                             286 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   009E CD E4 03            287 	call	_redraw_in2
+   009E CD F5 03            287 	call	_redraw_in2
                             288 ;	calcboy.c 67
                             289 ;	genGoto
    00A1 C3 03 00            290 	jp	00109$
@@ -748,7 +748,7 @@
                             727 ;	calcboy.c 128
                             728 ;	genCall
                             729 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   02C9 CD 08 04            730 	call	_redraw_op
+   02C9 CD 2A 04            730 	call	_redraw_op
                             731 ;	genLabel
    02CC                     732 00112$:
                             733 ;	genEndFunction
@@ -980,7 +980,7 @@
                             959 ;	calcboy.c 146
                             960 ;	genCall
                             961 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   03BC CD 27 04            962 	call	_redraw_ans
+   03BC CD 5A 04            962 	call	_redraw_ans
                             963 ;	genLabel
    03BF                     964 00112$:
                             965 ;	genEndFunction
@@ -1004,172 +1004,220 @@
                             983 ;	genCall
    03C4 CD 00 00            984 	call	_gotoxy
    03C7 E8 02               985 	lda	sp,2(sp)
-                            986 ;	calcboy.c 154
+                            986 ;	calcboy.c 155
                             987 ;	genIpush
                             988 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-                            989 ;	AOP_HL for __input1
-   03C9 21 03 00            990 	ld	hl,#__input1 + 2
-   03CC 2A                  991 	ld	a,(hl+)
-   03CD 66                  992 	ld	h,(hl)
-   03CE 6F                  993 	ld	l,a
-   03CF E5                  994 	push	hl
-   03D0 21 01 00            995 	ld	hl,#__input1
-   03D3 2A                  996 	ld	a,(hl+)
-   03D4 66                  997 	ld	h,(hl)
-   03D5 6F                  998 	ld	l,a
-   03D6 E5                  999 	push	hl
-                           1000 ;	genIpush
-   03D7 21 E1 03           1001 	ld	hl,#__str_19
-   03DA E5                 1002 	push	hl
-                           1003 ;	genCall
-   03DB CD 00 00           1004 	call	_printf
-   03DE E8 06              1005 	lda	sp,6(sp)
-                           1006 ;	genLabel
-   03E0                    1007 00101$:
-                           1008 ;	genEndFunction
-                           1009 	
-   03E0 C9                 1010 	ret
-   03E1                    1011 ___redraw_in1_end:
-   03E1                    1012 __str_19:
-   03E1 25 75              1013 	.ascii "%u"
-   03E3 00                 1014 	.db 0x00
-                           1015 ;	calcboy.c 160
-                           1016 ;	genLabel
-                           1017 ;	genFunction
-                           1018 ;	---------------------------------
-                           1019 ; Function redraw_in2
-                           1020 ; ---------------------------------
-   03E4                    1021 ___redraw_in2_start:
-   03E4                    1022 _redraw_in2:
-                           1023 	
-                           1024 ;	calcboy.c 161
-                           1025 ;	genIpush
-                           1026 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   03E4 21 0C 05           1027 	ld	hl,#0x050C
-   03E7 E5                 1028 	push	hl
-                           1029 ;	genCall
-   03E8 CD 00 00           1030 	call	_gotoxy
-   03EB E8 02              1031 	lda	sp,2(sp)
-                           1032 ;	calcboy.c 162
-                           1033 ;	genIpush
-                           1034 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-                           1035 ;	AOP_HL for __input2
-   03ED 21 07 00           1036 	ld	hl,#__input2 + 2
-   03F0 2A                 1037 	ld	a,(hl+)
-   03F1 66                 1038 	ld	h,(hl)
-   03F2 6F                 1039 	ld	l,a
-   03F3 E5                 1040 	push	hl
-   03F4 21 05 00           1041 	ld	hl,#__input2
-   03F7 2A                 1042 	ld	a,(hl+)
-   03F8 66                 1043 	ld	h,(hl)
-   03F9 6F                 1044 	ld	l,a
-   03FA E5                 1045 	push	hl
-                           1046 ;	genIpush
-   03FB 21 05 04           1047 	ld	hl,#__str_20
-   03FE E5                 1048 	push	hl
-                           1049 ;	genCall
-   03FF CD 00 00           1050 	call	_printf
-   0402 E8 06              1051 	lda	sp,6(sp)
-                           1052 ;	genLabel
-   0404                    1053 00101$:
-                           1054 ;	genEndFunction
-                           1055 	
-   0404 C9                 1056 	ret
-   0405                    1057 ___redraw_in2_end:
-   0405                    1058 __str_20:
-   0405 25 75              1059 	.ascii "%u"
-   0407 00                 1060 	.db 0x00
-                           1061 ;	calcboy.c 168
-                           1062 ;	genLabel
-                           1063 ;	genFunction
-                           1064 ;	---------------------------------
-                           1065 ; Function redraw_op
-                           1066 ; ---------------------------------
-   0408                    1067 ___redraw_op_start:
-   0408                    1068 _redraw_op:
-                           1069 	
-                           1070 ;	calcboy.c 169
-                           1071 ;	genIpush
-                           1072 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0408 21 0C 06           1073 	ld	hl,#0x060C
-   040B E5                 1074 	push	hl
-                           1075 ;	genCall
-   040C CD 00 00           1076 	call	_gotoxy
-   040F E8 02              1077 	lda	sp,2(sp)
-                           1078 ;	calcboy.c 170
-                           1079 ;	genCast
-                           1080 ;	AOP_HL for __oper
-   0411 21 0D 00           1081 	ld	hl,#__oper
-   0414 4E                 1082 	ld	c,(hl)
-   0415 7E                 1083 	ld	a,(hl)
-   0416 17                 1084 	rla	
-   0417 9F                 1085 	sbc	a,a
-   0418 47                 1086 	ld	b,a
-                           1087 ;	genIpush
-                           1088 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0419 C5                 1089 	push	bc
-                           1090 ;	genIpush
-   041A 21 24 04           1091 	ld	hl,#__str_21
-   041D E5                 1092 	push	hl
-                           1093 ;	genCall
-   041E CD 00 00           1094 	call	_printf
-   0421 E8 04              1095 	lda	sp,4(sp)
-                           1096 ;	genLabel
-   0423                    1097 00101$:
-                           1098 ;	genEndFunction
-                           1099 	
-   0423 C9                 1100 	ret
-   0424                    1101 ___redraw_op_end:
-   0424                    1102 __str_21:
-   0424 25 63              1103 	.ascii "%c"
-   0426 00                 1104 	.db 0x00
-                           1105 ;	calcboy.c 176
-                           1106 ;	genLabel
-                           1107 ;	genFunction
-                           1108 ;	---------------------------------
-                           1109 ; Function redraw_ans
-                           1110 ; ---------------------------------
-   0427                    1111 ___redraw_ans_start:
-   0427                    1112 _redraw_ans:
-                           1113 	
-                           1114 ;	calcboy.c 177
-                           1115 ;	genIpush
-                           1116 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0427 21 0C 07           1117 	ld	hl,#0x070C
-   042A E5                 1118 	push	hl
-                           1119 ;	genCall
-   042B CD 00 00           1120 	call	_gotoxy
-   042E E8 02              1121 	lda	sp,2(sp)
-                           1122 ;	calcboy.c 178
-                           1123 ;	genIpush
-                           1124 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-                           1125 ;	AOP_HL for __answer
-   0430 21 0B 00           1126 	ld	hl,#__answer + 2
-   0433 2A                 1127 	ld	a,(hl+)
-   0434 66                 1128 	ld	h,(hl)
-   0435 6F                 1129 	ld	l,a
-   0436 E5                 1130 	push	hl
-   0437 21 09 00           1131 	ld	hl,#__answer
-   043A 2A                 1132 	ld	a,(hl+)
-   043B 66                 1133 	ld	h,(hl)
-   043C 6F                 1134 	ld	l,a
-   043D E5                 1135 	push	hl
-                           1136 ;	genIpush
-   043E 21 48 04           1137 	ld	hl,#__str_22
-   0441 E5                 1138 	push	hl
-                           1139 ;	genCall
-   0442 CD 00 00           1140 	call	_printf
-   0445 E8 06              1141 	lda	sp,6(sp)
-                           1142 ;	genLabel
-   0447                    1143 00101$:
-                           1144 ;	genEndFunction
-                           1145 	
-   0447 C9                 1146 	ret
-   0448                    1147 ___redraw_ans_end:
-   0448                    1148 __str_22:
-   0448 25 75              1149 	.ascii "%u"
-   044A 00                 1150 	.db 0x00
-                           1151 	.area _CODE
+   03C9 21 EA 03            989 	ld	hl,#__str_19
+   03CC E5                  990 	push	hl
+                            991 ;	genCall
+   03CD CD 00 00            992 	call	_printf
+   03D0 E8 02               993 	lda	sp,2(sp)
+                            994 ;	calcboy.c 156
+                            995 ;	genIpush
+                            996 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                            997 ;	AOP_HL for __input1
+   03D2 21 03 00            998 	ld	hl,#__input1 + 2
+   03D5 2A                  999 	ld	a,(hl+)
+   03D6 66                 1000 	ld	h,(hl)
+   03D7 6F                 1001 	ld	l,a
+   03D8 E5                 1002 	push	hl
+   03D9 21 01 00           1003 	ld	hl,#__input1
+   03DC 2A                 1004 	ld	a,(hl+)
+   03DD 66                 1005 	ld	h,(hl)
+   03DE 6F                 1006 	ld	l,a
+   03DF E5                 1007 	push	hl
+                           1008 ;	genIpush
+   03E0 21 F2 03           1009 	ld	hl,#__str_20
+   03E3 E5                 1010 	push	hl
+                           1011 ;	genCall
+   03E4 CD 00 00           1012 	call	_printf
+   03E7 E8 06              1013 	lda	sp,6(sp)
+                           1014 ;	genLabel
+   03E9                    1015 00101$:
+                           1016 ;	genEndFunction
+                           1017 	
+   03E9 C9                 1018 	ret
+   03EA                    1019 ___redraw_in1_end:
+   03EA                    1020 __str_19:
+   03EA 20 20 20 20 20 20  1021 	.ascii "       "
+        20
+   03F1 00                 1022 	.db 0x00
+   03F2                    1023 __str_20:
+   03F2 25 75              1024 	.ascii "%u"
+   03F4 00                 1025 	.db 0x00
+                           1026 ;	calcboy.c 162
+                           1027 ;	genLabel
+                           1028 ;	genFunction
+                           1029 ;	---------------------------------
+                           1030 ; Function redraw_in2
+                           1031 ; ---------------------------------
+   03F5                    1032 ___redraw_in2_start:
+   03F5                    1033 _redraw_in2:
+                           1034 	
+                           1035 ;	calcboy.c 163
+                           1036 ;	genIpush
+                           1037 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   03F5 21 0C 05           1038 	ld	hl,#0x050C
+   03F8 E5                 1039 	push	hl
+                           1040 ;	genCall
+   03F9 CD 00 00           1041 	call	_gotoxy
+   03FC E8 02              1042 	lda	sp,2(sp)
+                           1043 ;	calcboy.c 165
+                           1044 ;	genIpush
+                           1045 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   03FE 21 1F 04           1046 	ld	hl,#__str_21
+   0401 E5                 1047 	push	hl
+                           1048 ;	genCall
+   0402 CD 00 00           1049 	call	_printf
+   0405 E8 02              1050 	lda	sp,2(sp)
+                           1051 ;	calcboy.c 166
+                           1052 ;	genIpush
+                           1053 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                           1054 ;	AOP_HL for __input2
+   0407 21 07 00           1055 	ld	hl,#__input2 + 2
+   040A 2A                 1056 	ld	a,(hl+)
+   040B 66                 1057 	ld	h,(hl)
+   040C 6F                 1058 	ld	l,a
+   040D E5                 1059 	push	hl
+   040E 21 05 00           1060 	ld	hl,#__input2
+   0411 2A                 1061 	ld	a,(hl+)
+   0412 66                 1062 	ld	h,(hl)
+   0413 6F                 1063 	ld	l,a
+   0414 E5                 1064 	push	hl
+                           1065 ;	genIpush
+   0415 21 27 04           1066 	ld	hl,#__str_22
+   0418 E5                 1067 	push	hl
+                           1068 ;	genCall
+   0419 CD 00 00           1069 	call	_printf
+   041C E8 06              1070 	lda	sp,6(sp)
+                           1071 ;	genLabel
+   041E                    1072 00101$:
+                           1073 ;	genEndFunction
+                           1074 	
+   041E C9                 1075 	ret
+   041F                    1076 ___redraw_in2_end:
+   041F                    1077 __str_21:
+   041F 20 20 20 20 20 20  1078 	.ascii "       "
+        20
+   0426 00                 1079 	.db 0x00
+   0427                    1080 __str_22:
+   0427 25 75              1081 	.ascii "%u"
+   0429 00                 1082 	.db 0x00
+                           1083 ;	calcboy.c 172
+                           1084 ;	genLabel
+                           1085 ;	genFunction
+                           1086 ;	---------------------------------
+                           1087 ; Function redraw_op
+                           1088 ; ---------------------------------
+   042A                    1089 ___redraw_op_start:
+   042A                    1090 _redraw_op:
+                           1091 	
+                           1092 ;	calcboy.c 173
+                           1093 ;	genIpush
+                           1094 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   042A 21 0C 06           1095 	ld	hl,#0x060C
+   042D E5                 1096 	push	hl
+                           1097 ;	genCall
+   042E CD 00 00           1098 	call	_gotoxy
+   0431 E8 02              1099 	lda	sp,2(sp)
+                           1100 ;	calcboy.c 175
+                           1101 ;	genIpush
+                           1102 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0433 21 4F 04           1103 	ld	hl,#__str_23
+   0436 E5                 1104 	push	hl
+                           1105 ;	genCall
+   0437 CD 00 00           1106 	call	_printf
+   043A E8 02              1107 	lda	sp,2(sp)
+                           1108 ;	calcboy.c 176
+                           1109 ;	genCast
+                           1110 ;	AOP_HL for __oper
+   043C 21 0D 00           1111 	ld	hl,#__oper
+   043F 4E                 1112 	ld	c,(hl)
+   0440 7E                 1113 	ld	a,(hl)
+   0441 17                 1114 	rla	
+   0442 9F                 1115 	sbc	a,a
+   0443 47                 1116 	ld	b,a
+                           1117 ;	genIpush
+                           1118 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0444 C5                 1119 	push	bc
+                           1120 ;	genIpush
+   0445 21 57 04           1121 	ld	hl,#__str_24
+   0448 E5                 1122 	push	hl
+                           1123 ;	genCall
+   0449 CD 00 00           1124 	call	_printf
+   044C E8 04              1125 	lda	sp,4(sp)
+                           1126 ;	genLabel
+   044E                    1127 00101$:
+                           1128 ;	genEndFunction
+                           1129 	
+   044E C9                 1130 	ret
+   044F                    1131 ___redraw_op_end:
+   044F                    1132 __str_23:
+   044F 20 20 20 20 20 20  1133 	.ascii "       "
+        20
+   0456 00                 1134 	.db 0x00
+   0457                    1135 __str_24:
+   0457 25 63              1136 	.ascii "%c"
+   0459 00                 1137 	.db 0x00
+                           1138 ;	calcboy.c 182
+                           1139 ;	genLabel
+                           1140 ;	genFunction
+                           1141 ;	---------------------------------
+                           1142 ; Function redraw_ans
+                           1143 ; ---------------------------------
+   045A                    1144 ___redraw_ans_start:
+   045A                    1145 _redraw_ans:
+                           1146 	
+                           1147 ;	calcboy.c 183
+                           1148 ;	genIpush
+                           1149 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   045A 21 0C 07           1150 	ld	hl,#0x070C
+   045D E5                 1151 	push	hl
+                           1152 ;	genCall
+   045E CD 00 00           1153 	call	_gotoxy
+   0461 E8 02              1154 	lda	sp,2(sp)
+                           1155 ;	calcboy.c 185
+                           1156 ;	genIpush
+                           1157 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0463 21 84 04           1158 	ld	hl,#__str_25
+   0466 E5                 1159 	push	hl
+                           1160 ;	genCall
+   0467 CD 00 00           1161 	call	_printf
+   046A E8 02              1162 	lda	sp,2(sp)
+                           1163 ;	calcboy.c 186
+                           1164 ;	genIpush
+                           1165 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                           1166 ;	AOP_HL for __answer
+   046C 21 0B 00           1167 	ld	hl,#__answer + 2
+   046F 2A                 1168 	ld	a,(hl+)
+   0470 66                 1169 	ld	h,(hl)
+   0471 6F                 1170 	ld	l,a
+   0472 E5                 1171 	push	hl
+   0473 21 09 00           1172 	ld	hl,#__answer
+   0476 2A                 1173 	ld	a,(hl+)
+   0477 66                 1174 	ld	h,(hl)
+   0478 6F                 1175 	ld	l,a
+   0479 E5                 1176 	push	hl
+                           1177 ;	genIpush
+   047A 21 8C 04           1178 	ld	hl,#__str_26
+   047D E5                 1179 	push	hl
+                           1180 ;	genCall
+   047E CD 00 00           1181 	call	_printf
+   0481 E8 06              1182 	lda	sp,6(sp)
+                           1183 ;	genLabel
+   0483                    1184 00101$:
+                           1185 ;	genEndFunction
+                           1186 	
+   0483 C9                 1187 	ret
+   0484                    1188 ___redraw_ans_end:
+   0484                    1189 __str_25:
+   0484 20 20 20 20 20 20  1190 	.ascii "       "
+        20
+   048B 00                 1191 	.db 0x00
+   048C                    1192 __str_26:
+   048C 25 75              1193 	.ascii "%u"
+   048E 00                 1194 	.db 0x00
+                           1195 	.area _CODE
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
 
 Symbol Table
@@ -1182,14 +1230,14 @@ Symbol Table
   0 ___draw_screen_start               00D5 R
   0 ___main_end                        00B1 R
   0 ___main_start                      0000 R
-  0 ___redraw_ans_end                  0448 R
-  0 ___redraw_ans_start                0427 R
-  0 ___redraw_in1_end                  03E1 R
+  0 ___redraw_ans_end                  0484 R
+  0 ___redraw_ans_start                045A R
+  0 ___redraw_in1_end                  03EA R
   0 ___redraw_in1_start                03C0 R
-  0 ___redraw_in2_end                  0405 R
-  0 ___redraw_in2_start                03E4 R
-  0 ___redraw_op_end                   0424 R
-  0 ___redraw_op_start                 0408 R
+  0 ___redraw_in2_end                  041F R
+  0 ___redraw_in2_start                03F5 R
+  0 ___redraw_op_end                   044F R
+  0 ___redraw_op_start                 042A R
   0 ___select_op_end                   02CD R
   0 ___select_op_start                 0274 R
   1 __answer                           0009 GR
@@ -1209,11 +1257,15 @@ Symbol Table
   0 __str_16                           023A R
   0 __str_17                           024E R
   0 __str_18                           0262 R
-  0 __str_19                           03E1 R
+  0 __str_19                           03EA R
   0 __str_2                            01AE R
-  0 __str_20                           0405 R
-  0 __str_21                           0424 R
-  0 __str_22                           0448 R
+  0 __str_20                           03F2 R
+  0 __str_21                           041F R
+  0 __str_22                           0427 R
+  0 __str_23                           044F R
+  0 __str_24                           0457 R
+  0 __str_25                           0484 R
+  0 __str_26                           048C R
   0 __str_3                            01C3 R
   0 __str_4                            01CD R
   0 __str_5                            01D0 R
@@ -1229,17 +1281,17 @@ Symbol Table
     _joypad                            **** GX
   0 _main                              0000 GR
     _printf                            **** GX
-  0 _redraw_ans                        0427 GR
+  0 _redraw_ans                        045A GR
   0 _redraw_in1                        03C0 GR
-  0 _redraw_in2                        03E4 GR
-  0 _redraw_op                         0408 GR
+  0 _redraw_in2                        03F5 GR
+  0 _redraw_op                         042A GR
   0 _select_op                         0274 GR
 
 ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
 
 Area Table
 
-   0 _CODE                              size  44B   flags 0
+   0 _CODE                              size  48F   flags 0
    1 _DATA                              size    E   flags 0
    2 _OVERLAY                           size    0   flags 0
    3 _ISEG                              size    0   flags 0

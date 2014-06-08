@@ -151,6 +151,9 @@ void calc_ans() {
  */
 void redraw_in1() {
     gotoxy(IN1_X, IN1_Y);
+    printf("       ");
+
+    gotoxy(IN1_X, IN1_Y);
     printf("%u", _input1);
 }
 
@@ -158,6 +161,9 @@ void redraw_in1() {
  * Redraws the input 2 value.
  */
 void redraw_in2() {
+    gotoxy(IN2_X, IN2_Y);
+    printf("       ");
+
     gotoxy(IN2_X, IN2_Y);
     printf("%u", _input2);
 }
@@ -167,6 +173,9 @@ void redraw_in2() {
  */
 void redraw_op() {
     gotoxy(OPR_X, OPR_Y);
+    printf("       ");
+
+    gotoxy(OPR_X, OPR_Y);
     printf("%c", _oper);
 }
 
@@ -174,6 +183,11 @@ void redraw_op() {
  * Redraws the answer value.
  */
 void redraw_ans() {
+    // Clear the previous value from the screen
+    gotoxy(ANS_X, ANS_Y);
+    printf("       ");
+
+    // Draw the new value
     gotoxy(ANS_X, ANS_Y);
     printf("%u", _answer);
 }
