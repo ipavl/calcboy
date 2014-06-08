@@ -1,7 +1,8 @@
 CalcBoy
 =======
 
-A basic calculator for the Nintendo Game Boy.
+A basic calculator for the Nintendo Game Boy. 
+([Screenshot](https://i.imgur.com/4dlvXaN.png))
 
 Compilation
 -----------
