@@ -7,9 +7,8 @@
 
 #include <gb/gb.h>
 #include <gb/console.h>
-#include <types.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <types.h>
 
 // Operations
 #define OP_ADD '+'
