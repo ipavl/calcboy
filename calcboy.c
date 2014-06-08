@@ -164,6 +164,6 @@ void redraw_op() {
  * Redraws the answer value.
  */
 void redraw_ans() {
-    gotoxy(IN1_X, IN1_Y);
+    gotoxy(ANS_X, ANS_Y);
     printf("%u", _answer);
 }

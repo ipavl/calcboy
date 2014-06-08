@@ -47,10 +47,10 @@ AREA _CODE
 	ATTRIB REL CON
 	GLOBALS
 		_main	0200
-		_clear_disp	02B4
-		_draw_screen	02D8
-		_select_op	0477
-		_calc_ans	04D0
+		_clear_disp	02B1
+		_draw_screen	02D5
+		_select_op	0474
+		_calc_ans	04CD
 		_redraw_in1	04D1
 		_redraw_in2	04F5
 		_redraw_op	0519
@@ -298,7 +298,7 @@ MODULES
 	FILE /opt/gbdk/lib/small/asxxxx/gb/crt0.o
 		NAME Runtime
 	FILE calcboy.o
-		NAME lcc231200
+		NAME lcc234410
 LIBRARIES
 	LIBRARY /opt/gbdk/lib/small/asxxxx/gb/gb.lib
 		MODULE font.o
