@@ -70,3 +70,12 @@ alters the number by much more than that due to the way input is
 handled
 
 These might be fixed some day.
+
+FAQ
+---
+
+* Why is everything a global variable?
+
+The documentation I had (GB/GBDK documentation is limited) said that 
+they are more efficient for the Game Boy due to the way it handles 
+local variables.
