@@ -18,6 +18,9 @@ is `../../bin/lcc` from the project's working directory as my set up
 was to have a "projects" directory with a sub-directory for each 
 project below the main "gbdk" directory.
 
+The version of GBDK at the time this program was created was 
+**2.95-3**.
+
 Usage
 =====
 
