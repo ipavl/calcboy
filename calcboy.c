@@ -103,8 +103,8 @@ void draw_screen() {
     printf("\n \n");
     printf(" HELP\n");
     printf(" ----\n\n");
-    printf(" Input 1: LEFT/RIGHT");
-    printf(" Input 2: UP/DOWN\n\n");
+    printf(" Input1: LEFT/RIGHT\n");
+    printf(" Input2: UP/DOWN\n\n");
     printf(" Operation: SELECT\n");
     printf(" Calculate: START");
 }
