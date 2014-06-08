@@ -1,7 +1,7 @@
 /* CalcBoy.c
  *
  * Description: a calculator for the Nintendo Game Boy
- * Author: Ian Pavlinic
+ * Author: ipavl <https://github.com/ipavl>
  * Date: June 7, 2014
  */
 
