@@ -1,0 +1,537 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.3.1 Sat Jun  7 20:25:28 2014
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module lcc221550
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl __oper
+                             13 	.globl __answer
+                             14 	.globl __input2
+                             15 	.globl __input1
+                             16 	.globl _clear_disp
+                             17 	.globl _draw_screen
+                             18 ;--------------------------------------------------------
+                             19 ; special function registers
+                             20 ;--------------------------------------------------------
+                             21 ;--------------------------------------------------------
+                             22 ; special function bits 
+                             23 ;--------------------------------------------------------
+                             24 ;--------------------------------------------------------
+                             25 ; internal ram data
+                             26 ;--------------------------------------------------------
+                             27 	.area _DATA
+   0000                      28 __input1::
+   0000                      29 	.ds 4
+   0004                      30 __input2::
+   0004                      31 	.ds 4
+   0008                      32 __answer::
+   0008                      33 	.ds 4
+   000C                      34 __oper::
+   000C                      35 	.ds 1
+                             36 ;--------------------------------------------------------
+                             37 ; overlayable items in internal ram 
+                             38 ;--------------------------------------------------------
+                             39 	.area _OVERLAY
+                             40 ;--------------------------------------------------------
+                             41 ; indirectly addressable internal ram data
+                             42 ;--------------------------------------------------------
+                             43 	.area _ISEG
+                             44 ;--------------------------------------------------------
+                             45 ; bit data
+                             46 ;--------------------------------------------------------
+                             47 	.area _BSEG
+                             48 ;--------------------------------------------------------
+                             49 ; external ram data
+                             50 ;--------------------------------------------------------
+                             51 	.area _XSEG
+                             52 ;--------------------------------------------------------
+                             53 ; global & static initialisations
+                             54 ;--------------------------------------------------------
+                             55 	.area _GSINIT
+                             56 	.area _GSFINAL
+                             57 	.area _GSINIT
+                             58 ;	calcboy.c 19
+                             59 ;	genAssign
+                             60 ;	AOP_HL for __input1
+   0000 AF                   61 	xor	a,a
+   0001 21 00 00             62 	ld	hl,#__input1
+   0004 22                   63 	ld	(hl+),a
+   0005 22                   64 	ld	(hl+),a
+   0006 22                   65 	ld	(hl+),a
+   0007 77                   66 	ld	(hl),a
+                             67 ;	calcboy.c 20
+                             68 ;	genAssign
+                             69 ;	AOP_HL for __input2
+   0008 AF                   70 	xor	a,a
+   0009 21 04 00             71 	ld	hl,#__input2
+   000C 22                   72 	ld	(hl+),a
+   000D 22                   73 	ld	(hl+),a
+   000E 22                   74 	ld	(hl+),a
+   000F 77                   75 	ld	(hl),a
+                             76 ;	calcboy.c 21
+                             77 ;	genAssign
+                             78 ;	AOP_HL for __answer
+   0010 AF                   79 	xor	a,a
+   0011 21 08 00             80 	ld	hl,#__answer
+   0014 22                   81 	ld	(hl+),a
+   0015 22                   82 	ld	(hl+),a
+   0016 22                   83 	ld	(hl+),a
+   0017 77                   84 	ld	(hl),a
+                             85 ;	calcboy.c 22
+                             86 ;	genAssign
+                             87 ;	AOP_HL for __oper
+   0018 21 0C 00             88 	ld	hl,#__oper
+   001B 36 2B                89 	ld	(hl),#0x2B
+                             90 ;--------------------------------------------------------
+                             91 ; Home
+                             92 ;--------------------------------------------------------
+                             93 	.area _HOME
+                             94 	.area _CODE
+                             95 ;--------------------------------------------------------
+                             96 ; code
+                             97 ;--------------------------------------------------------
+                             98 	.area _CODE
+                             99 ;	calcboy.c 27
+                            100 ;	genLabel
+                            101 ;	genFunction
+                            102 ;	---------------------------------
+                            103 ; Function main
+                            104 ; ---------------------------------
+   0000                     105 ___main_start:
+   0000                     106 _main:
+                            107 	
+                            108 ;	calcboy.c 28
+                            109 ;	genCall
+                            110 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0000 CD 3A 00            111 	call	_draw_screen
+                            112 ;	calcboy.c 30
+                            113 ;	genIpush
+                            114 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0003 3E 80               115 	ld	a,#0x80
+   0005 F5                  116 	push	af
+   0006 33                  117 	inc	sp
+                            118 ;	genCall
+   0007 CD 00 00            119 	call	_waitpad
+   000A E8 01               120 	lda	sp,1(sp)
+                            121 ;	calcboy.c 31
+                            122 ;	genCall
+                            123 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   000C CD 1C 00            124 	call	_clear_disp
+                            125 ;	calcboy.c 33
+                            126 ;	genLabel
+   000F                     127 00102$:
+                            128 ;	calcboy.c 34
+                            129 ;	genIpush
+                            130 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   000F 3E 02               131 	ld	a,#0x02
+   0011 F5                  132 	push	af
+   0012 33                  133 	inc	sp
+                            134 ;	genCall
+   0013 CD 00 00            135 	call	_waitpad
+   0016 E8 01               136 	lda	sp,1(sp)
+                            137 ;	genGoto
+   0018 C3 0F 00            138 	jp	00102$
+                            139 ;	calcboy.c 37
+                            140 ;	genLabel
+   001B                     141 00104$:
+                            142 ;	genEndFunction
+                            143 	
+   001B C9                  144 	ret
+   001C                     145 ___main_end:
+                            146 ;	calcboy.c 43
+                            147 ;	genLabel
+                            148 ;	genFunction
+                            149 ;	---------------------------------
+                            150 ; Function clear_disp
+                            151 ; ---------------------------------
+   001C                     152 ___clear_disp_start:
+   001C                     153 _clear_disp:
+                            154 	
+                            155 ;	calcboy.c 45
+                            156 ;	genAssign
+   001C 0E 00               157 	ld	c,#0x00
+                            158 ;	genLabel
+   001E                     159 00101$:
+                            160 ;	genCmpLt
+   001E 79                  161 	ld	a,c
+   001F EE 80               162 	xor	a,#0x80
+   0021 FE 92               163 	cp	#0x12^0x80
+   0023 D2 36 00            164 	jp	nc,00105$
+                            165 ;	calcboy.c 46
+                            166 ;	genIpush
+                            167 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 1 deSending: 0
+   0026 C5                  168 	push	bc
+   0027 21 37 00            169 	ld	hl,#__str_0
+   002A E5                  170 	push	hl
+                            171 ;	genCall
+   002B CD 00 00            172 	call	_printf
+   002E E8 02               173 	lda	sp,2(sp)
+   0030 E1                  174 	pop	hl
+   0031 4D                  175 	ld	c,l
+                            176 ;	calcboy.c 45
+                            177 ;	genPlus
+                            178 ;	genPlusIncr
+                            179 ; Removed redundent load
+   0032 0C                  180 	inc	c
+                            181 ;	genGoto
+   0033 C3 1E 00            182 	jp	00101$
+                            183 ;	genLabel
+   0036                     184 00105$:
+                            185 ;	genEndFunction
+                            186 	
+   0036 C9                  187 	ret
+   0037                     188 ___clear_disp_end:
+   0037                     189 __str_0:
+   0037 20                  190 	.ascii " "
+   0038 0A                  191 	.db 0x0A
+   0039 00                  192 	.db 0x00
+                            193 ;	calcboy.c 53
+                            194 ;	genLabel
+                            195 ;	genFunction
+                            196 ;	---------------------------------
+                            197 ; Function draw_screen
+                            198 ; ---------------------------------
+   003A                     199 ___draw_screen_start:
+   003A                     200 _draw_screen:
+                            201 	
+                            202 ;	calcboy.c 54
+                            203 ;	genIpush
+                            204 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   003A 21 10 01            205 	ld	hl,#__str_1
+   003D E5                  206 	push	hl
+                            207 ;	genCall
+   003E CD 00 00            208 	call	_printf
+   0041 E8 02               209 	lda	sp,2(sp)
+                            210 ;	calcboy.c 55
+                            211 ;	genIpush
+                            212 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0043 21 13 01            213 	ld	hl,#__str_2
+   0046 E5                  214 	push	hl
+                            215 ;	genCall
+   0047 CD 00 00            216 	call	_printf
+   004A E8 02               217 	lda	sp,2(sp)
+                            218 ;	calcboy.c 56
+                            219 ;	genIpush
+                            220 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   004C 21 28 01            221 	ld	hl,#__str_3
+   004F E5                  222 	push	hl
+                            223 ;	genCall
+   0050 CD 00 00            224 	call	_printf
+   0053 E8 02               225 	lda	sp,2(sp)
+                            226 ;	calcboy.c 57
+                            227 ;	genIpush
+                            228 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0055 21 32 01            229 	ld	hl,#__str_4
+   0058 E5                  230 	push	hl
+                            231 ;	genCall
+   0059 CD 00 00            232 	call	_printf
+   005C E8 02               233 	lda	sp,2(sp)
+                            234 ;	calcboy.c 58
+                            235 ;	genIpush
+                            236 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                            237 ;	AOP_HL for __input1
+   005E 21 02 00            238 	ld	hl,#__input1 + 2
+   0061 2A                  239 	ld	a,(hl+)
+   0062 66                  240 	ld	h,(hl)
+   0063 6F                  241 	ld	l,a
+   0064 E5                  242 	push	hl
+   0065 21 00 00            243 	ld	hl,#__input1
+   0068 2A                  244 	ld	a,(hl+)
+   0069 66                  245 	ld	h,(hl)
+   006A 6F                  246 	ld	l,a
+   006B E5                  247 	push	hl
+                            248 ;	genIpush
+   006C 21 35 01            249 	ld	hl,#__str_5
+   006F E5                  250 	push	hl
+                            251 ;	genCall
+   0070 CD 00 00            252 	call	_printf
+   0073 E8 06               253 	lda	sp,6(sp)
+                            254 ;	calcboy.c 59
+                            255 ;	genIpush
+                            256 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0075 21 44 01            257 	ld	hl,#__str_6
+   0078 E5                  258 	push	hl
+                            259 ;	genCall
+   0079 CD 00 00            260 	call	_printf
+   007C E8 02               261 	lda	sp,2(sp)
+                            262 ;	calcboy.c 60
+                            263 ;	genIpush
+                            264 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                            265 ;	AOP_HL for __input2
+   007E 21 06 00            266 	ld	hl,#__input2 + 2
+   0081 2A                  267 	ld	a,(hl+)
+   0082 66                  268 	ld	h,(hl)
+   0083 6F                  269 	ld	l,a
+   0084 E5                  270 	push	hl
+   0085 21 04 00            271 	ld	hl,#__input2
+   0088 2A                  272 	ld	a,(hl+)
+   0089 66                  273 	ld	h,(hl)
+   008A 6F                  274 	ld	l,a
+   008B E5                  275 	push	hl
+                            276 ;	genIpush
+   008C 21 46 01            277 	ld	hl,#__str_7
+   008F E5                  278 	push	hl
+                            279 ;	genCall
+   0090 CD 00 00            280 	call	_printf
+   0093 E8 06               281 	lda	sp,6(sp)
+                            282 ;	calcboy.c 61
+                            283 ;	genIpush
+                            284 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0095 21 55 01            285 	ld	hl,#__str_8
+   0098 E5                  286 	push	hl
+                            287 ;	genCall
+   0099 CD 00 00            288 	call	_printf
+   009C E8 02               289 	lda	sp,2(sp)
+                            290 ;	calcboy.c 62
+                            291 ;	genCast
+                            292 ;	AOP_HL for __oper
+   009E 21 0C 00            293 	ld	hl,#__oper
+   00A1 4E                  294 	ld	c,(hl)
+   00A2 7E                  295 	ld	a,(hl)
+   00A3 17                  296 	rla	
+   00A4 9F                  297 	sbc	a,a
+   00A5 47                  298 	ld	b,a
+                            299 ;	genIpush
+                            300 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00A6 C5                  301 	push	bc
+                            302 ;	genIpush
+   00A7 21 57 01            303 	ld	hl,#__str_9
+   00AA E5                  304 	push	hl
+                            305 ;	genCall
+   00AB CD 00 00            306 	call	_printf
+   00AE E8 04               307 	lda	sp,4(sp)
+                            308 ;	calcboy.c 63
+                            309 ;	genIpush
+                            310 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00B0 21 66 01            311 	ld	hl,#__str_10
+   00B3 E5                  312 	push	hl
+                            313 ;	genCall
+   00B4 CD 00 00            314 	call	_printf
+   00B7 E8 02               315 	lda	sp,2(sp)
+                            316 ;	calcboy.c 64
+                            317 ;	genIpush
+                            318 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                            319 ;	AOP_HL for __answer
+   00B9 21 0A 00            320 	ld	hl,#__answer + 2
+   00BC 2A                  321 	ld	a,(hl+)
+   00BD 66                  322 	ld	h,(hl)
+   00BE 6F                  323 	ld	l,a
+   00BF E5                  324 	push	hl
+   00C0 21 08 00            325 	ld	hl,#__answer
+   00C3 2A                  326 	ld	a,(hl+)
+   00C4 66                  327 	ld	h,(hl)
+   00C5 6F                  328 	ld	l,a
+   00C6 E5                  329 	push	hl
+                            330 ;	genIpush
+   00C7 21 68 01            331 	ld	hl,#__str_11
+   00CA E5                  332 	push	hl
+                            333 ;	genCall
+   00CB CD 00 00            334 	call	_printf
+   00CE E8 06               335 	lda	sp,6(sp)
+                            336 ;	calcboy.c 65
+                            337 ;	genIpush
+                            338 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00D0 21 77 01            339 	ld	hl,#__str_12
+   00D3 E5                  340 	push	hl
+                            341 ;	genCall
+   00D4 CD 00 00            342 	call	_printf
+   00D7 E8 02               343 	lda	sp,2(sp)
+                            344 ;	calcboy.c 66
+                            345 ;	genIpush
+                            346 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00D9 21 7B 01            347 	ld	hl,#__str_13
+   00DC E5                  348 	push	hl
+                            349 ;	genCall
+   00DD CD 00 00            350 	call	_printf
+   00E0 E8 02               351 	lda	sp,2(sp)
+                            352 ;	calcboy.c 67
+                            353 ;	genIpush
+                            354 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00E2 21 82 01            355 	ld	hl,#__str_14
+   00E5 E5                  356 	push	hl
+                            357 ;	genCall
+   00E6 CD 00 00            358 	call	_printf
+   00E9 E8 02               359 	lda	sp,2(sp)
+                            360 ;	calcboy.c 68
+                            361 ;	genIpush
+                            362 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00EB 21 8A 01            363 	ld	hl,#__str_15
+   00EE E5                  364 	push	hl
+                            365 ;	genCall
+   00EF CD 00 00            366 	call	_printf
+   00F2 E8 02               367 	lda	sp,2(sp)
+                            368 ;	calcboy.c 69
+                            369 ;	genIpush
+                            370 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00F4 21 9F 01            371 	ld	hl,#__str_16
+   00F7 E5                  372 	push	hl
+                            373 ;	genCall
+   00F8 CD 00 00            374 	call	_printf
+   00FB E8 02               375 	lda	sp,2(sp)
+                            376 ;	calcboy.c 70
+                            377 ;	genIpush
+                            378 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   00FD 21 B3 01            379 	ld	hl,#__str_17
+   0100 E5                  380 	push	hl
+                            381 ;	genCall
+   0101 CD 00 00            382 	call	_printf
+   0104 E8 02               383 	lda	sp,2(sp)
+                            384 ;	calcboy.c 71
+                            385 ;	genIpush
+                            386 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0106 21 C7 01            387 	ld	hl,#__str_18
+   0109 E5                  388 	push	hl
+                            389 ;	genCall
+   010A CD 00 00            390 	call	_printf
+   010D E8 02               391 	lda	sp,2(sp)
+                            392 ;	genLabel
+   010F                     393 00101$:
+                            394 ;	genEndFunction
+                            395 	
+   010F C9                  396 	ret
+   0110                     397 ___draw_screen_end:
+   0110                     398 __str_1:
+   0110 20                  399 	.ascii " "
+   0111 0A                  400 	.db 0x0A
+   0112 00                  401 	.db 0x00
+   0113                     402 __str_2:
+   0113 20 43 41 4C 43 42   403 	.ascii " CALCBOY   by ipavl"
+        4F 59 20 20 20 62
+        79 20 69 70 61 76
+        6C
+   0126 0A                  404 	.db 0x0A
+   0127 00                  405 	.db 0x00
+   0128                     406 __str_3:
+   0128 20 2D 2D 2D 2D 2D   407 	.ascii " -------"
+        2D 2D
+   0130 0A                  408 	.db 0x0A
+   0131 00                  409 	.db 0x00
+   0132                     410 __str_4:
+   0132 20                  411 	.ascii " "
+   0133 0A                  412 	.db 0x0A
+   0134 00                  413 	.db 0x00
+   0135                     414 __str_5:
+   0135 20 20 20 49 6E 70   415 	.ascii "   Input 1: %u"
+        75 74 20 31 3A 20
+        25 75
+   0143 00                  416 	.db 0x00
+   0144                     417 __str_6:
+   0144 0A                  418 	.db 0x0A
+   0145 00                  419 	.db 0x00
+   0146                     420 __str_7:
+   0146 20 20 20 49 6E 70   421 	.ascii "   Input 2: %u"
+        75 74 20 32 3A 20
+        25 75
+   0154 00                  422 	.db 0x00
+   0155                     423 __str_8:
+   0155 0A                  424 	.db 0x0A
+   0156 00                  425 	.db 0x00
+   0157                     426 __str_9:
+   0157 20 4F 70 65 72 61   427 	.ascii " Operation: %c"
+        74 69 6F 6E 3A 20
+        25 63
+   0165 00                  428 	.db 0x00
+   0166                     429 __str_10:
+   0166 0A                  430 	.db 0x0A
+   0167 00                  431 	.db 0x00
+   0168                     432 __str_11:
+   0168 20 20 20 20 41 6E   433 	.ascii "    Answer: %u"
+        73 77 65 72 3A 20
+        25 75
+   0176 00                  434 	.db 0x00
+   0177                     435 __str_12:
+   0177 0A                  436 	.db 0x0A
+   0178 20                  437 	.ascii " "
+   0179 0A                  438 	.db 0x0A
+   017A 00                  439 	.db 0x00
+   017B                     440 __str_13:
+   017B 20 48 45 4C 50      441 	.ascii " HELP"
+   0180 0A                  442 	.db 0x0A
+   0181 00                  443 	.db 0x00
+   0182                     444 __str_14:
+   0182 20 2D 2D 2D 2D      445 	.ascii " ----"
+   0187 0A                  446 	.db 0x0A
+   0188 0A                  447 	.db 0x0A
+   0189 00                  448 	.db 0x00
+   018A                     449 __str_15:
+   018A 20 49 6E 70 75 74   450 	.ascii " Input 1: LEFT/RIGHT"
+        20 31 3A 20 4C 45
+        46 54 2F 52 49 47
+        48 54
+   019E 00                  451 	.db 0x00
+   019F                     452 __str_16:
+   019F 20 49 6E 70 75 74   453 	.ascii " Input 2: UP/DOWN"
+        20 32 3A 20 55 50
+        2F 44 4F 57 4E
+   01B0 0A                  454 	.db 0x0A
+   01B1 0A                  455 	.db 0x0A
+   01B2 00                  456 	.db 0x00
+   01B3                     457 __str_17:
+   01B3 20 4F 70 65 72 61   458 	.ascii " Operation: SELECT"
+        74 69 6F 6E 3A 20
+        53 45 4C 45 43 54
+   01C5 0A                  459 	.db 0x0A
+   01C6 00                  460 	.db 0x00
+   01C7                     461 __str_18:
+   01C7 20 43 61 6C 63 75   462 	.ascii " Calculate: START"
+        6C 61 74 65 3A 20
+        53 54 41 52 54
+   01D8 00                  463 	.db 0x00
+                            464 	.area _CODE
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 1.
+
+Symbol Table
+
+  0 ___clear_disp_end                  0037 R
+  0 ___clear_disp_start                001C R
+  0 ___draw_screen_end                 0110 R
+  0 ___draw_screen_start               003A R
+  0 ___main_end                        001C R
+  0 ___main_start                      0000 R
+  1 __answer                           0008 GR
+  1 __input1                           0000 GR
+  1 __input2                           0004 GR
+  1 __oper                             000C GR
+  0 __str_0                            0037 R
+  0 __str_1                            0110 R
+  0 __str_10                           0166 R
+  0 __str_11                           0168 R
+  0 __str_12                           0177 R
+  0 __str_13                           017B R
+  0 __str_14                           0182 R
+  0 __str_15                           018A R
+  0 __str_16                           019F R
+  0 __str_17                           01B3 R
+  0 __str_18                           01C7 R
+  0 __str_2                            0113 R
+  0 __str_3                            0128 R
+  0 __str_4                            0132 R
+  0 __str_5                            0135 R
+  0 __str_6                            0144 R
+  0 __str_7                            0146 R
+  0 __str_8                            0155 R
+  0 __str_9                            0157 R
+  0 _clear_disp                        001C GR
+  0 _draw_screen                       003A GR
+  0 _main                              0000 GR
+    _printf                            **** GX
+    _waitpad                           **** GX
+
+ASxxxx Assembler V01.75  (GameBoy Z80-like CPU), page 2.
+
+Area Table
+
+   0 _CODE                              size  1D9   flags 0
+   1 _DATA                              size    D   flags 0
+   2 _OVERLAY                           size    0   flags 0
+   3 _ISEG                              size    0   flags 0
+   4 _BSEG                              size    0   flags 0
+   5 _XSEG                              size    0   flags 0
+   6 _GSINIT                            size   1D   flags 0
+   7 _GSFINAL                           size    0   flags 0
+   8 _HOME                              size    0   flags 0
