@@ -133,6 +133,16 @@ void select_op() {
  * calls redraw_ans() to draw the new value on the screen.
  */
 void calc_ans() {
+    if (_oper == OP_ADD) {
+        _answer = _input1 + _input2;
+    } else if (_oper == OP_SUB) {
+        _answer = _input1 - _input2;
+    } else if (_oper == OP_MUL) {
+        _answer = _input1 * _input2;
+    } else if (_oper == OP_DIV) {
+        _answer = _input1 / _input2;
+    }
+
     redraw_ans();
 }
 
