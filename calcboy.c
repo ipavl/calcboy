@@ -148,7 +148,7 @@ void redraw_in1() {
  * Redraws the input 2 value.
  */
 void redraw_in2() {
-    gotoxy(IN1_X, IN1_Y);
+    gotoxy(IN2_X, IN2_Y);
     printf("%u", _input2);
 }
 
