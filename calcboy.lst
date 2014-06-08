@@ -1,9 +1,9 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : FreeWare ANSI-C Compiler
-                              3 ; Version 2.3.1 Sat Jun  7 21:57:19 2014
+                              3 ; Version 2.3.1 Sat Jun  7 22:14:56 2014
                               4 
                               5 ;--------------------------------------------------------
-                              6 	.module lcc244330
+                              6 	.module lcc249400
                               7 	
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
@@ -432,51 +432,51 @@
    0114 CD 00 00            432 	call	_printf
    0117 E8 02               433 	lda	sp,2(sp)
                             434 ;	calcboy.c 98
-                            435 ;	genIpush
-                            436 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-                            437 ;	AOP_HL for __input2
-   0119 21 07 00            438 	ld	hl,#__input2 + 2
-   011C 2A                  439 	ld	a,(hl+)
-   011D 66                  440 	ld	h,(hl)
-   011E 6F                  441 	ld	l,a
-   011F E5                  442 	push	hl
-   0120 21 05 00            443 	ld	hl,#__input2
-   0123 2A                  444 	ld	a,(hl+)
-   0124 66                  445 	ld	h,(hl)
-   0125 6F                  446 	ld	l,a
-   0126 E5                  447 	push	hl
-                            448 ;	genIpush
-   0127 21 E1 01            449 	ld	hl,#__str_7
-   012A E5                  450 	push	hl
-                            451 ;	genCall
-   012B CD 00 00            452 	call	_printf
-   012E E8 06               453 	lda	sp,6(sp)
-                            454 ;	calcboy.c 99
-                            455 ;	genIpush
-                            456 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0130 21 F0 01            457 	ld	hl,#__str_8
-   0133 E5                  458 	push	hl
-                            459 ;	genCall
-   0134 CD 00 00            460 	call	_printf
-   0137 E8 02               461 	lda	sp,2(sp)
-                            462 ;	calcboy.c 100
-                            463 ;	genCast
-                            464 ;	AOP_HL for __oper
-   0139 21 0D 00            465 	ld	hl,#__oper
-   013C 4E                  466 	ld	c,(hl)
-   013D 7E                  467 	ld	a,(hl)
-   013E 17                  468 	rla	
-   013F 9F                  469 	sbc	a,a
-   0140 47                  470 	ld	b,a
-                            471 ;	genIpush
-                            472 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0141 C5                  473 	push	bc
+                            435 ;	genCast
+                            436 ;	AOP_HL for __oper
+   0119 21 0D 00            437 	ld	hl,#__oper
+   011C 4E                  438 	ld	c,(hl)
+   011D 7E                  439 	ld	a,(hl)
+   011E 17                  440 	rla	
+   011F 9F                  441 	sbc	a,a
+   0120 47                  442 	ld	b,a
+                            443 ;	genIpush
+                            444 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   0121 C5                  445 	push	bc
+                            446 ;	genIpush
+   0122 21 E1 01            447 	ld	hl,#__str_7
+   0125 E5                  448 	push	hl
+                            449 ;	genCall
+   0126 CD 00 00            450 	call	_printf
+   0129 E8 04               451 	lda	sp,4(sp)
+                            452 ;	calcboy.c 99
+                            453 ;	genIpush
+                            454 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+   012B 21 F0 01            455 	ld	hl,#__str_8
+   012E E5                  456 	push	hl
+                            457 ;	genCall
+   012F CD 00 00            458 	call	_printf
+   0132 E8 02               459 	lda	sp,2(sp)
+                            460 ;	calcboy.c 100
+                            461 ;	genIpush
+                            462 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
+                            463 ;	AOP_HL for __input2
+   0134 21 07 00            464 	ld	hl,#__input2 + 2
+   0137 2A                  465 	ld	a,(hl+)
+   0138 66                  466 	ld	h,(hl)
+   0139 6F                  467 	ld	l,a
+   013A E5                  468 	push	hl
+   013B 21 05 00            469 	ld	hl,#__input2
+   013E 2A                  470 	ld	a,(hl+)
+   013F 66                  471 	ld	h,(hl)
+   0140 6F                  472 	ld	l,a
+   0141 E5                  473 	push	hl
                             474 ;	genIpush
    0142 21 F2 01            475 	ld	hl,#__str_9
    0145 E5                  476 	push	hl
                             477 ;	genCall
    0146 CD 00 00            478 	call	_printf
-   0149 E8 04               479 	lda	sp,4(sp)
+   0149 E8 06               479 	lda	sp,6(sp)
                             480 ;	calcboy.c 101
                             481 ;	genIpush
                             482 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
@@ -596,17 +596,17 @@
    01DF 0A                  590 	.db 0x0A
    01E0 00                  591 	.db 0x00
    01E1                     592 __str_7:
-   01E1 20 20 20 49 6E 70   593 	.ascii "   Input 2: %u"
-        75 74 20 32 3A 20
-        25 75
+   01E1 20 4F 70 65 72 61   593 	.ascii " Operation: %c"
+        74 69 6F 6E 3A 20
+        25 63
    01EF 00                  594 	.db 0x00
    01F0                     595 __str_8:
    01F0 0A                  596 	.db 0x0A
    01F1 00                  597 	.db 0x00
    01F2                     598 __str_9:
-   01F2 20 4F 70 65 72 61   599 	.ascii " Operation: %c"
-        74 69 6F 6E 3A 20
-        25 63
+   01F2 20 20 20 49 6E 70   599 	.ascii "   Input 2: %u"
+        75 74 20 32 3A 20
+        25 75
    0200 00                  600 	.db 0x00
    0201                     601 __str_10:
    0201 0A                  602 	.db 0x0A
@@ -1065,7 +1065,7 @@
                            1043 ;	calcboy.c 163
                            1044 ;	genIpush
                            1045 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   03FE 21 0C 05           1046 	ld	hl,#0x050C
+   03FE 21 0C 06           1046 	ld	hl,#0x060C
    0401 E5                 1047 	push	hl
                            1048 ;	genCall
    0402 CD 00 00           1049 	call	_gotoxy
@@ -1081,7 +1081,7 @@
                            1059 ;	calcboy.c 166
                            1060 ;	genIpush
                            1061 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   0410 21 0C 05           1062 	ld	hl,#0x050C
+   0410 21 0C 06           1062 	ld	hl,#0x060C
    0413 E5                 1063 	push	hl
                            1064 ;	genCall
    0414 CD 00 00           1065 	call	_gotoxy
@@ -1131,7 +1131,7 @@
                            1108 ;	calcboy.c 174
                            1109 ;	genIpush
                            1110 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   043C 21 0C 06           1111 	ld	hl,#0x060C
+   043C 21 0C 05           1111 	ld	hl,#0x050C
    043F E5                 1112 	push	hl
                            1113 ;	genCall
    0440 CD 00 00           1114 	call	_gotoxy
@@ -1147,7 +1147,7 @@
                            1124 ;	calcboy.c 177
                            1125 ;	genIpush
                            1126 ; _saveRegsForCall: sendSetSize: 0 deInUse: 0 bcInUse: 0 deSending: 0
-   044E 21 0C 06           1127 	ld	hl,#0x060C
+   044E 21 0C 05           1127 	ld	hl,#0x050C
    0451 E5                 1128 	push	hl
                            1129 ;	genCall
    0452 CD 00 00           1130 	call	_gotoxy

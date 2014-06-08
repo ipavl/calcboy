@@ -17,13 +17,13 @@
 #define OP_DIV '/'
 
 // Key screen coordinates (i.e. value redraw start)
-#define IN1_Y 4
+#define IN1_Y 4    // input 1
 #define IN1_X 12
-#define IN2_Y 5
-#define IN2_X 12
-#define OPR_Y 6
+#define OPR_Y 5    // operation
 #define OPR_X 12
-#define ANS_Y 7
+#define IN2_Y 6    // input 2
+#define IN2_X 12
+#define ANS_Y 7    // answer
 #define ANS_X 12
 
 BYTE i;
@@ -95,9 +95,9 @@ void draw_screen() {
     printf(" \n");
     printf("   Input 1: %u", _input1);
     printf("\n");
-    printf("   Input 2: %u", _input2);
-    printf("\n");
     printf(" Operation: %c", _oper);
+    printf("\n");
+    printf("   Input 2: %u", _input2);
     printf("\n");
     printf("    Answer: %u", _answer);
     printf("\n \n");
