@@ -1,1 +1,1 @@
-..\..\bin\lcc -Wa-l -Wl-m -o rogue.gb rogue.c
+..\..\bin\lcc -Wa-l -Wl-m -o calcboy.gb calcboy.c
